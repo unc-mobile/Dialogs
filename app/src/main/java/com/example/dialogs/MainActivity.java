@@ -8,13 +8,20 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    Button mAlert;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mAlert = findViewById(R.id.alert);
     }
 
     public void onClick(View view) {
+        if (view == mAlert) {
+            MyDialog dialog = new MyDialog();
+            dialog.show(getSupportFragmentManager(), "alert");
+        }
     }
 }
