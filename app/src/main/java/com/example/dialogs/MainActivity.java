@@ -11,8 +11,10 @@ public class MainActivity extends AppCompatActivity implements MyDialog.Listener
     Button mAlert;
     Button mList;
     Button mMultiChoice;
+    Button mSingleChoice;
 
     MultiChoiceDialog mMultiChoiceDialog;
+    SingleChoiceDialog mSingleChoiceDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,11 @@ public class MainActivity extends AppCompatActivity implements MyDialog.Listener
                 mMultiChoiceDialog = new MultiChoiceDialog();
             }
             mMultiChoiceDialog.show(getSupportFragmentManager(), "multi");
+        } else if (view == mSingleChoice) {
+            if (mSingleChoiceDialog == null) {
+                mSingleChoiceDialog = new SingleChoiceDialog();
+            }
+            mSingleChoiceDialog.show(getSupportFragmentManager(), "single");
         }
     }
 
