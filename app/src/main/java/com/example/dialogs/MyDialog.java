@@ -15,6 +15,22 @@ import androidx.fragment.app.DialogFragment;
 public class MyDialog extends DialogFragment implements DialogInterface.OnClickListener{
     private static final String LOG_TAG = "MyDialog";
 
+    public interface Listener {
+        void OnAccepted();
+    }
+
+    private Listener mListener;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mListener = (Listener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + "must implement MyDialog.Listener!");
+        }
+    }
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -30,7 +46,7 @@ public class MyDialog extends DialogFragment implements DialogInterface.OnClickL
     public void onClick(DialogInterface dialog, int which) {
         switch (which) {
             case DialogInterface.BUTTON_POSITIVE:
-                Toast.makeText(getContext(), "Accepted!", Toast.LENGTH_SHORT).show();
+                mListener.OnAccepted();
                 break;
 
             case DialogInterface.BUTTON_NEGATIVE:

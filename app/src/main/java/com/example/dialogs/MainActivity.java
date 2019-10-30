@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MyDialog.Listener {
     Button mAlert;
 
     @Override
@@ -23,5 +23,10 @@ public class MainActivity extends AppCompatActivity {
             MyDialog dialog = new MyDialog();
             dialog.show(getSupportFragmentManager(), "alert");
         }
+    }
+
+    @Override
+    public void OnAccepted() {
+        Toast.makeText(this, "Accepted (activity)!", Toast.LENGTH_SHORT).show();
     }
 }
