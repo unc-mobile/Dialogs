@@ -10,6 +10,9 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements MyDialog.Listener {
     Button mAlert;
     Button mList;
+    Button mMultiChoice;
+
+    MultiChoiceDialog mMultiChoiceDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,11 @@ public class MainActivity extends AppCompatActivity implements MyDialog.Listener
         } else if (view == mList) {
             ListDialog dialog = new ListDialog();
             dialog.show(getSupportFragmentManager(), "list");
+        } else if (view == mMultiChoice) {
+            if (mMultiChoiceDialog == null) {
+                mMultiChoiceDialog = new MultiChoiceDialog();
+            }
+            mMultiChoiceDialog.show(getSupportFragmentManager(), "multi");
         }
     }
 
