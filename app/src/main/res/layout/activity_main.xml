@@ -34,4 +34,11 @@
         android:layout_height="wrap_content"
         android:onClick="onClick"
         android:text="Single choice" />
+
+    <Button
+        android:id="@+id/sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="Sign in" />
 </LinearLayout>

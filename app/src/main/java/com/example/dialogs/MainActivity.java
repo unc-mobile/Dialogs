@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity implements MyDialog.Listener
     Button mList;
     Button mMultiChoice;
     Button mSingleChoice;
+    Button mSignIn;
 
     MultiChoiceDialog mMultiChoiceDialog;
     SingleChoiceDialog mSingleChoiceDialog;
@@ -45,6 +46,9 @@ public class MainActivity extends AppCompatActivity implements MyDialog.Listener
                 mSingleChoiceDialog = new SingleChoiceDialog();
             }
             mSingleChoiceDialog.show(getSupportFragmentManager(), "single");
+        } else if (view == mSignIn) {
+            LoginDialog dialog = new LoginDialog();
+            dialog.show(getSupportFragmentManager(), "sign in");
         }
     }
 
